@@ -1,0 +1,10 @@
+<div style="width:  100%;display: table;">
+	<%= image_tag "#{@user.picture}", style: "max-height: 122px;float:  left;margin-right:  10px;" %>
+	<h3><%= @user.name.try(:titleize) %></h3>
+</div>
+<br>
+<div style="width:  100%;display: table;">
+	<b>Posts Found: </b><%= @posts.count %>
+	<br>
+	<b>Query Execution Time for Posts: </b><%= @exe_time.real %> (<%= (@exe_time.real*1000).round(3) %> ms)
+</div>

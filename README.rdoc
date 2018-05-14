@@ -1,0 +1,19 @@
+== README
+
+Comparison between:
+
+* normal query
+
+* with indexing
+
+* elastcisearch
+
+
+Models in this app:
+
+* User
+	rails g model User name:string DOB:date picture:text 
+
+* Post
+	rails g model Post user_id:integer author:string title:string body:text tags:string published:boolean published_on:datetime
+
