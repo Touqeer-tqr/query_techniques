@@ -2,9 +2,32 @@
 	<%= image_tag "#{@user.picture}", style: "max-height: 122px;float:  left;margin-right:  10px;" %>
 	<h3><%= @user.name.try(:titleize) %></h3>
 </div>
+
 <br>
+
 <div style="width:  100%;display: table;">
-	<b>Posts Found: </b><%= @posts.count %>
-	<br>
+	<b>Total articles: </b><%= @count %>
+</div>
+
+<br>
+
+<%= form_tag search_path, remote: true do %>
+  <div class="field">
+    <%= text_field_tag :content, nil, placeholder: "Enter text to search in articles e.g 'no-235'", style: "width: 300px;" %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Search" %>
+    <%= submit_tag "Elastic Search" %>
+  </div>
+<% end %>
+<hr>
+<div id="result">
 	<b>Query Execution Time for Posts: </b><%= @exe_time.real %> (<%= (@exe_time.real*1000).round(3) %> ms)
+</div>
+<hr>
+<div>
+	<b>Title: </b><%= @post.title %><br>
+	<b>Published: </b><%= @post.title %><br>
+	<%= @post.body.html_safe %><br>
+	<b>Tage: </b><%= @post.tags %>
 </div>

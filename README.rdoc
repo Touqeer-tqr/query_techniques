@@ -14,6 +14,19 @@ Models in this app:
 * User
 	rails g model User name:string DOB:date picture:text 
 
-* Post
+* Post (for simple search)
 	rails g model Post user_id:integer author:string title:string body:text tags:string published:boolean published_on:datetime
+
+* Articles (for elastic search)
+	rails g model Article user_id:integer author:string title:string body:text tags:string published:boolean published_on:datetime
+
+
+run `rake db:seed` to load sample data into database
+
+<b>Note:</b>
+<i>Article</i> and <i>Post</i> contains the same data. But elastic search is only applied to article.
+Each record contains `no-#{n}` e.g <b>no-1758</b>
+
+check the sample data at `localhost:3000`
+just replace the number to perform different tests and note down execution time.
 

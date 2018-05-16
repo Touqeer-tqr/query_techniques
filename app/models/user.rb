@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :posts
-	# sio = StringIO.new(Base64.decode64(string))
+	has_many :posts, dependent: :destroy
+	has_many :articles, dependent: :destroy
+
+	Article.import
+	# Article.import(force: true)
 end
